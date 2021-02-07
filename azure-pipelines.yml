@@ -16,7 +16,9 @@ container:
   endpoint: uipathrobot3
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- script: C:\UiPath\UiRobot.exe pack $(Build.SourcesDirectory)\project.json -o $(Build.ArtifactStagingDirectory)\ -v 1.0.$(Build.BuildNumber)
+  displayName: 'Build Artifacts'
+- publish: $(Build.ArtifactStagingDirectory)
+  artifact: drop
 
 
